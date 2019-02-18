@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>무한 이미지 슬라이드</title>
+<style>
+    body {
+        margin: 0;
+    }
+    #details {
+        width:620px;
+        margin:auto;
+        position: relative;
+    }
+
+    #nextBtn,#prevBtn {
+        width:44px;
+        height:44px;
+        background:url(img/kakaofriends_btn.png);
+        text-indent: -1000px;
+        overflow: hidden;
+        cursor: pointer;
+        border:none;
+        position: absolute;
+        top:228px;
+    }
+
+    #prevBtn {
+        background-position: 0 -347px;
+        left:0;
+    }
+
+    #prevBtn:hover {
+        background-position: -61px -347px;
+    }
+
+    #nextBtn {
+        background-position:0 -411px;
+        right:0;
+    }
+    #nextBtn:hover {
+        background-position: -61px -411px;
+    }
+
+</style>
+</head>
+<body>
+	<div id="details">
+		<div id="friends">
+			<div id="friend1"></div>
+			<div id="friend2" class="hide"></div>
+		</div><!-- //friends -->
+		<div id="btnBox">
+			<button id="prevBtn">이전친구보기</button>
+			<button id="nextBtn">다음친구보기</button>
+		</div><!-- //btnBox -->
+	</div><!-- //details -->
+
+
+</body>
+</html>

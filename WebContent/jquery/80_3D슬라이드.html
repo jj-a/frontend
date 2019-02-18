@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+    <title>3d슬라이드</title>
+    <style>
+        #wrap {
+            width:600px;
+            height:500px;
+            position: fixed;
+            left:50%;
+            top:50%;
+            margin:-250px 0 0 -300px;
+
+        }
+
+        #wrap button {
+            width:44px;
+            height:44px;
+            position: absolute;
+            border-radius: 22px;
+            background-image:url(img/kakaofriends_btn.png);
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+        }
+
+        #prevBtn {
+            left: 0;
+            top: 228px;
+            background-position: -0 -347px;
+        }
+        #prevBtn:hover {
+            background-position: -61px -347px;
+        }
+        #nextBtn:hover {
+            background-position: -61px -411px;
+        }
+        #nextBtn {
+            top:228px;
+            right:0;
+            background-position: 0 -411px;
+        }
+
+        #friendsBox {
+            width:480px;
+            height:500px;
+            position: absolute;
+            top:0;
+            left:60px;
+            perspective: 1000px;
+        }
+
+        #imgBox {
+            width:480px;
+            height:500px;
+            position: absolute;
+            left:0;
+            transform-style: preserve-3d;
+            transition: .4s ease;
+            transform: translateZ(-240px)
+        }
+
+        #imgBox img {
+            position: absolute;
+            background:rgba(255,255,255,.95);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="friendsBox">
+            <div id="imgBox">
+                <img src="img/muji.png" />
+                <img src="img/apeach.png" />
+                <img src="img/neo.png" />
+                <img src="img/frodo.png" />
+            </div><!-- //imgBox -->
+        </div><!-- //friendsBox -->
+        <button id="prevBtn"></button>
+        <button id="nextBtn"></button>
+    </div><!-- //wrap -->
+
+</body>
+</html>

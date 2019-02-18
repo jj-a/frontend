@@ -1,0 +1,95 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<title>복습</title>
+<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css"/>
+<style>
+	.btn {
+		border:none;
+		color:#fff;
+		width:120px;
+		height:50px;
+		cursor: pointer;
+		font:100 24px 'Noto Sans KR',sans-serif;
+	}
+	.btn:hover {
+		font-weight: 900;
+		box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+	}
+
+	dl {
+		width:300px;
+		height:200px;
+		border:1px solid #616161;
+		padding:10px;
+		margin: auto;
+	}
+	dt,dd {
+		margin:7px;
+		font-size:18px;
+		text-align: left;
+		color:#616161;
+	}
+	dt {
+		font-weight: 900;
+		font-size:22px;
+		text-align: center;
+	}
+	#color {
+		display: inline-block;
+		width:50px;
+		height:30px;
+		background:#999;
+		text-align: center;
+	}
+
+	#exBox {
+		width:400px;
+		height:300px;
+		box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+		text-align: center;
+		padding:20px;
+		background: #fff;
+		position: fixed;
+		left:50%;
+		top:50%;
+		margin:-170px 0 0 -220px;
+	}
+</style>
+</head>
+<body>
+<button id="openBtn" class="btn">버튼</button>
+<div id="exBox">
+	<p>
+		<button id="pinkBtn" class="btn">멋진 핑크</button>
+		<button id="blueBtn" class="btn">쿨한 파랑</button>
+		<button id="greenBtn" class="btn">네온 녹색</button>
+	</p>
+	<dl>
+		<dt>클릭한 버튼정보</dt>
+		<dd>클릭한 버튼의 index : <span id="index">?</span></dd>
+		<dd>클릭한 버튼의 뒷배경색 : <span id="color">?</span></dd>
+		<dd>클릭한 버튼의 글자 : <span id="text">?</span></dd>
+	</dl>
+</div><!--//exBtn -->
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
