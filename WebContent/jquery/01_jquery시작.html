@@ -3,47 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <title>01_jquery시작.html</title>
+<script src="js/jquery.js"></script>
 <link rel="stylesheet" href="css/reset.css" />
 <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css" />
 <style>
-    body {
-        font-family: 'Noto Sans KR', sans-serif;
-        text-align: center;
-    }
-    
-    #txt {
-        font-size: 50px;
-        font-weight: 700;
-        transition: .4s ease;
-        width: 400px;
-        margin: 30px auto;
-        color:#424242;
-        transform:scale(1) rotate(0deg);
-    }
-    
-   
-    #btn {
-        padding: 12px 16px;
-        border: none;
-        cursor: pointer;
-        font: 500 20px 'Noto Sans KR', sans-serif;
-        background: #26C6DA;
-        color: #fff;
-    }
-    
-    #btn:hover {
-        background: #00B8D4;
-        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-        transition: .2s ease;
-    }
-    
+	body {
+		font-family: 'Noto Sans KR', sans-serif;
+		text-align: center;
+	}
+	
+	#txt {
+		font-size: 50px;
+		font-weight: 700;
+		transition: .4s ease;
+		width: 400px;
+		margin: 30px auto;
+		color:#424242;
+		transform:scale(1) rotate(0deg);
+	}
 
+	#txt.click {
+		color:#ff99aa;
+		transform:scale(1.5) rotate(360deg);
+	}
+	
+	#btn {
+		padding: 12px 16px;
+		border: none;
+		cursor: pointer;
+		font: 500 20px 'Noto Sans KR', sans-serif;
+		background: #26C6DA;
+		color: #fff;
+	}
+	
+	#btn:hover {
+		background: #00B8D4;
+		box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+		transition: .2s ease;
+	}
 </style>
 </head>
 <body>
-    <h1 id="txt">버튼을 눌러보세요.</h1>
-    <button id="btn">난 버튼</button>
+	<h1 id="txt">버튼을 눌러보세요.</h1>
+	<button id="btn" class="btn" value=0>나는 버튼</button>
 
+<script>
+		//jQuery : 요소 선택 편리함
+		//<tag>	Element(요소)
+		//id=""	Property/Attribute(속성)
+	
+		// $("#btn").on("click", function test(){
+		// 	alert("On Click Event");
+		// });
+
+		$("#btn").click(function(){
+			//alert("On Click Event");
+			this.value=parseInt(this.value)+1;
+			//this.textContent=this.value+"번 눌렀당";	// button 태그 안의 text 변경
+			this.class="click";
+			$("#txt").text(this.value+"번 눌렀당").toggleClass("click");
+		});
+	
+	</script>
 </body>
 </html>
 

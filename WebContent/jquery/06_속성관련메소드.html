@@ -3,6 +3,7 @@
 <head>
 <meta  charset="utf-8"/>
 <title>속성관련메서드</title>
+<script src="js/jquery.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css" />
 <style>
@@ -25,6 +26,13 @@
 	</p>
 	<img src="img/b_ryan.png" alt="라이언" title="라이언"/>
 
+	<script>
+		$("button:eq(2)").click(function(){
+			// JSON = key(name):value 로 구성
+			var obj={"width":"500", "height":300, "src":"img/b_muzi.png", "alt":"무지", "title":"무지" };
+			$("img").attr(obj);
+		});
+	</script>
 
 </body>
 </html>

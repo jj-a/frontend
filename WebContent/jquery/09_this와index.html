@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>우리가 클릭한 요소와 인덱스 얻기</title>
+	<meta charset="UTF-8">
+	<title>우리가 클릭한 요소와 인덱스 얻기</title>
+	<script src="js/jquery.js"></script>
 </head>
 <body>
-    <button>버튼</button>
-    <button>버튼</button>
-    <button>버튼</button>
+	<button>버튼</button>
+	<button>버튼</button>
+	<button>버튼</button>
 
+	<script>
+		$("button").click(function(){
+			$(this).css("color","red");
+			var idx=$(this).index();
+			alert(idx);
+		});
+	</script>
 
 </body>
+
 </html>

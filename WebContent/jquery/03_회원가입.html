@@ -3,16 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입.html</title>
+<script src="js/jquery.js"></script>
 </head>
 <body>
 
-* 회원가입 *<br/>
+* 회원가입 *<br />
 <form name="memfrm" id="memfrm">
-아이디 :<input type="text" name="id" id="id">
-<button id="btn_idcheck">중복확인</button><br/><br/>
-<button id="btn_join">회원가입</button>
-<button id="btn_reset">다시쓰기</button>
-</form> 
+	아이디 :<input type="text" name="id" id="id">
+	<button id="btn_idcheck">중복확인</button><br /><br />
+	<button id="btn_join">회원가입</button>
+	<button id="btn_reset">다시쓰기</button>
+</form>
+
+<!-- -->
+
+<script>
+
+	$("#btn_idcheck").click(function(){
+		// 중복확인 버튼
+		window.open("","","width=350, height=300");
+		return false;
+	})
+
+	$("#btn_join").click(function(){
+		// 회원가입 버튼
+		var uid=$("#id").val();
+		if(uid.length==0){
+			alert("아이디를 입력해주세요.");
+			$("#id").focus();
+			return false;
+		}
+		$("#memfrm").submit();
+	})
+
+	$("#btn_reset").click(function(){
+		//다시쓰기 버튼
+		$("#memfrm").reset();
+		return false;
+	})
+
+</script>
 
 
 </body>

@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>text_html메서드</title>
+<script src="js/jquery.js"></script>
 <style type="text/css"> 
 	#text,#html {
 		width:250px;
@@ -18,6 +19,16 @@
 	</p>
 	<div id="text"></div>
 	<div id="html"></div>
+
+	<script>
+		$("button").click(function(){
+			var txt="<img src='img/k7.png'>";
+
+			$("#text").text(txt);
+			$("#html").html(txt);
+		});
+
+	</script>
 
 </body>
 </html>

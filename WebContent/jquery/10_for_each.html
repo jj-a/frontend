@@ -1,30 +1,59 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>javascript의 for문과 jquery등의 each</title>
-<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css"/>
-<style>
+	<meta charset="UTF-8">
+	<title>javascript의 for문과 jquery등의 each</title>
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanskr.css" />
+	<style>
+		body,
+		button {
+			font: 14px "Noto Sans KR", sans-serif;
+			text-align: center;
+		}
+		
+		button {
+			display: block;
+			width: 100px;
+			height: 30px;
+			margin: 0 auto;
+		}
 
-    body,button {
-        font:20px "Noto Sans KR",sans-serif;
-    }
-
-    #displayList {
-        margin:20px;
-        width:400px;
-        height:300px;
-        background:#81D4FA;
-        padding:20px;
-        list-style: none;
-    }
-
-</style>
+		#displayList, #resultList {
+			margin: 20px;
+			width: 200px;
+			height: 200px;
+			background: rgb(255, 239, 166);
+			padding: 20px;
+			list-style: none;
+			float: left;
+		}
+	</style>
 </head>
+
 <body>
-<button id="startBtn">7단!</button>
-<ul id="displayList"></ul>
+	<button id="startBtn">7단!</button>
+	<ul id="displayList"></ul>
+	<ul id="resultList"></ul>
 
+	<script>
+		$("#startBtn").click(function () {
+			var n=7;
 
+			$("#displayList").text("["+n+"단]");
+			$("#resultList").text("[Result]");
+
+			for(var i=1;i<=9;i++){
+				var str=n+"*"+i+"="+parseInt(n*i);
+				$("<li>").text(str).appendTo("#displayList");
+
+			}
+			$("li").each(function(){
+				var result=$(this).text();
+				$("<li>").text(result).appendTo("#resultList");
+			});
+		});
+	</script>
+	
 </body>
 </html>
