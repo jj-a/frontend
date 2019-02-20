@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>아날로그 시계</title>
+	<script src="js/jquery.js"></script>
+	<script src="js/moment-with-locales.js"></script>
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+	<style>
+		#wrap {
+			width: 600px;
+			height: 600px;
+			position: fixed;
+
+			left: 50%;
+			top: 50%;
+			margin: -300px 0 0 -300px;
+			font-family: bon, sans-serif;
+		}
+
+		#wrap h1 {
+			height: 80px;
+			font-size: 50px;
+			text-align: center;
+			line-height: 80px;
+			font-weight: 700;
+			color: #424242;
+		}
+
+		#clock {
+			width: 500px;
+			height: 500px;
+			background: url(img/Clock-face.png);
+			background-size: 100% 100%;
+			margin: auto;
+			position: relative;
+			box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+		}
+
+		.hand {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+		#hour {
+			background-image: url("img/hour_hand.png");
+		}
+		#min {
+			background-image: url("img/minute_hand.png");
+		}
+		#sec {
+			background-image: url("img/second_hand.png");
+		}
+	</style>
+</head>
+
+<body>
+	<div id="wrap">
+		<h1><i class="fa fa-clock-o"></i> 시계</h1>
+		<div id="clock">
+			<div id="hour" class="hand"></div>
+			<div id="min" class="hand"></div>
+			<div id="sec" class="hand"></div>
+		</div>
+	</div>
+
+	<script>
+
+		function showTime() {
+			var now = moment();
+			var hour = now.hour();
+			var min = now.minute();
+			var sec = now.second();
+
+			// 초침 이미지 각도 꺽기
+			$("#sec").css("transform", "rotate(" + (6*sec) + "deg)");
+			$("#min").css("transform", "rotate(" + (6*min) + "deg)");
+			$("#hour").css("transform", "rotate(" + (30*hour) + "deg)");
+		} // showTime() end
+
+		// 1초마다 주기적으로 함수 호출
+		setInterval(showTime, 1000);
+
+	</script>
+</body>
+
+</html>

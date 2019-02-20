@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>moment</title>
+	<script src="js/jquery.js"></script>
+	<script src="js/moment-with-locales.js"></script>
+</head>
+
+<body>
+	<h1 id="time"></h1>
+
+	<script>
+		// javaScript
+		/*
+		var now=new Date();
+		var year=now.getFullYear();
+		var month=now.getMonth()+1;
+		var date=now.getDate();
+		var hour=now.getHours();
+		var min=now.getMinutes();
+		var sec=now.getSeconds();
+		
+		var fullDate="";
+		fullDate+=year+"년 "+month+"월 "+date+"일 ";
+		fullDate+=hour+"시 "+min+"분 "+sec+"초";
+
+		$("#time").text(fullDate);
+		*/
+
+		// moment.js
+		moment.lang('ko', {
+			weekdays: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
+			weekdaysShort: ["일", "월", "화", "수", "목", "금", "토"],
+		})
+		var now = moment();
+
+		alert(now.month()+1+"월"+now.date()+"일");
+		var output = now.format("YYYY년 MM월 DD일 ddd  HH:mm:ss");
+
+		$("#time").text(output);
+
+	</script>
+</body>
+
+</html>

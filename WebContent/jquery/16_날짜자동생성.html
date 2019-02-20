@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>날짜 자동 생성</title>
+	<script src="js/jquery.js"></script>
+	<script src="js/moment-with-locales.js"></script>
+	<style>
+		body {
+			text-align: center;
+		}
+		select {
+			width: 80px;
+			height: 50px;
+			font-size: 16pt;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+
+	<select id="year"></select>년　
+	<select id="month"></select>월　
+	<select id="date"></select>일　
+
+	<script>
+		createYearMonth();
+
+		function createYearMonth() {
+			// 1월~12월 생성후 추가
+			for (var m = 1; m <= 12; m++) {
+				$("<option>").text(m).appendTo("#month");
+			}//for end
+
+			// 현재년도-5년 ~ 현재년도+5년까지 출력
+			var nowYear = moment().year();
+			for (var y =(nowYear-5);y<=(nowYear+5);y++) {
+				if(y===nowYear){
+					//$("<option>").text(y).attr("selected", "selected").appendTo("#year");	// attribute 이용
+					$("<option>").text(y).prop("selected", true).appendTo("#year");	// property 이용
+				}else $("<option>").text(y).appendTo("#year");
+			}//for end
+
+			// 일수 생성 함수 호출
+			createDate();
+
+		} // createYearMonth() end
+
+		function createDate() {
+
+			// 목록에서 선택한 년도를 얻어옴
+			var year=$("#year").val();
+			// 목록에서 선택한 월을 얻어옴
+			var month=$("#month").val();
+
+			// 해당월의 마지막 일 가져오기
+			var lastDate=moment(year+"-"+month,"YYYY-MM").endOf("month").date();
+
+			// 현재월의 일 출력
+			for (var d=1; d<=lastDate; d++) {
+			$("<option>").text(d).appendTo("#date");
+			}//for end
+		} // createDate() end
+
+		// year,month onchange 시
+		$("#month").change(function(){
+			$("#date").empty();
+			createDate();
+		});
+
+		$("#year").change(function(){
+			$("#date").empty();
+			createDate();
+		});
+
+	</script>
+</body>
+
+</html>
