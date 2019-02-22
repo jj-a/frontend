@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>04_배우목록보여주기.html</title>
+	<style>
+
+		#loader {
+			width: 100%;
+			height: 100%;
+			background-color: #EDE9DF;
+			position: fixed;
+			left: 0;
+			top: 0;
+			background-image: url("img/loader.gif");
+			background-repeat: no-repeat;
+			background-position: center;
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="loader"></div>
+	<button>요청!!</button>
+	<table border="1">
+		<caption>* 남자 배우 목록 *</caption>
+		<thead>
+			<tr>
+				<th>이름</th>
+				<th>키</th>
+				<th>몸무게</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td colspan="3">없습니다</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script src="js/jquery.js"></script>
+	<script>
+
+		$("button").click(function () {
+			$("#loader").show();	// loader 이미지 보여주기
+
+			$.ajax("actors.json", {
+				dataType: "json",
+				type: "GET",      //$.get()방식
+				error: function (xhr, status, error) {
+					alert(error);
+				}, 
+				success: function (result) { 
+					// 기존의 tbody값을 전부 지움
+					$("tbody").empty();
+
+					// 기존 table에 tbody값 업데이트
+					$(result).each(function () {
+						var $tr = $("<tr>");
+						var $td1 = $("<td>").text(this.name);
+						var $td2 = $("<td>").text(this.height);
+						var $td3 = $("<td>").text(this.weight);
+
+						$tr.append($td1, $td2, $td3).appendTo("tbody");
+
+					});//each() end
+
+					//6)로딩되고 있는 이미지를 서서히 숨김
+					$("#loader").fadeOut(200);
+
+				}//success end
+
+			});
+		});
+
+
+	</script>
+</body>
+
+</html>

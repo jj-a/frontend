@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>03_json데이터가져오기each.html</title>
+</head>
+
+<body>
+	<button>* JSON 데이터 받아오기 *</button>
+	<div id="panel"></div>
+
+	<script src="js/jquery.js"></script>
+	<script>
+		$("button").click(function () {
+			$.ajax("sungjuks.json", {
+				dataType: "json",
+				error: function (xhr, status, error) {
+					alert(error);
+				},
+				success: function (result, status, xhr) {
+					//alert(result);
+					var str = "<table border='1'>";
+
+					$.each(result, function (idx, data) {
+						//alert(idx);
+						str += "<tr>";
+						str += "  <td>" + data.name + "</td>";
+						str += "  <td>" + data.id + "</td>";
+						str += "  <td>" + data.kor + "</td>";
+						str += "  <td>" + data.eng + "</td>";
+						str += "  <td>" + data.mat + "</td>";
+						str += "</tr>";
+					});
+
+					str += "</table>";
+					$("#panel").append(str);
+				},
+			})
+		});
+	</script>
+
+</body>
+
+</html>

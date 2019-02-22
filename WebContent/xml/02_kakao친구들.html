@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>02_kakao친구들.html</title>
+	<style>
+		body {
+			text-align: center;
+		}
+		#demo {
+			display: table;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+
+<body>
+	<button id="btn">KAKAO 친구들 보여주기</button>
+	<div id="demo"></div>
+
+	<script src="js/jquery.js"></script>
+	<script>
+		
+		$("#btn").click(function () { 
+			$.ajax({
+				url: "kakao2.xml",
+				dataType: "xml",
+				success: function (result) {
+					//alert(result);
+					var str="";
+					$("friend", result).each(function () {
+						str+="<img src='"+$("image", this).text()+"' >";
+						str+="<p>"+$("name", this).text()+"</p>";
+						str+="";
+						str+="";
+					});
+					$("#demo").empty();
+					$("#demo").append(str);
+				}
+			});
+		});
+
+	</script>
+</body>
+
+</html>

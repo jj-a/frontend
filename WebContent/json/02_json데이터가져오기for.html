@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>02_json데이터가져오기for.html</title>
+</head>
+
+<body>
+	<button>* JSON 데이터 받아오기 *</button>
+	<div id="panel"></div>
+
+	<script src="js/jquery.js"></script>
+	<script>
+		/*
+			AJAX (Asyncharonous JavaScript and XML)
+			- 페이지 전체를 로딩하지 않고 서버에서 응답해준 데이터를 가져와서 페이지 일부분만 바꿀 수 있음
+			- 비동기식 방식의 네트워크 통신 (문자단위)
+			- 한 페이지에서 요청과 응답이 동시에 이루어짐
+			- 페이지 요청은 1번만 요청하고 그 이후는 문자단위로 요청
+
+			1) JavaScript : XMLHttpRequest 객체
+			2) jQuery     : $.ajax()
+			3) AngularJS  : $http
+
+			- 형식
+			$.ajax({요청명령},callback함수) 
+			- 옵션
+			dataType: text, json, xml 등
+			type: GET, POST, PUT, DELETE
+			data: 서버에 요청할 데이터
+			error: 에러시 호출되는 함수
+			success: 성공시 호출되는 함수
+		*/
+
+		$("button").click(function () {
+			$.ajax("sungjuk.json", {
+				dataType: "json",
+				error: function (xhr, status, error) {
+					alert('ERROR');
+					alert(xhr);     //XMLHttpRequest 객체
+					alert(status);  //error
+					alert(error);   //서버가 응답해준 메세지
+				}, success: function (result, status, xhr) {
+					alert("SUCCESS");
+					//alert(result.length);
+					var size = result.length;
+					var str = "<table border='1'>";
+					for (idx = 0; idx < size; idx++) {
+						str += "<tr>";
+						str += "  <td>" + result[idx].name + "</td>";
+						str += "  <td>" + result[idx].id + "</td>";
+						str += "  <td>" + result[idx].kor + "</td>";
+						str += "  <td>" + result[idx].eng + "</td>";
+						str += "  <td>" + result[idx].mat + "</td>";
+						str += "</tr>";
+					}//for end
+					str += "</table>";
+
+					//$("#panel").html(str);
+					//$("#panel").text(str);
+					$("#panel").append(str);
+
+				}
+			});
+		});
+
+	</script>
+
+</body>
+
+</html>

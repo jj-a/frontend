@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>05_callback함수호출.html</title>
+</head>
+
+<body>
+	<button>* JSON 데이터 받아오기 *</button>
+	<div id="panel"></div>
+
+	<script src="js/jquery.js"></script>
+	<script>
+
+		$("button").click(function (e) {
+			$.getJSON("sungjuks.json", responseProc);
+		});
+
+		function responseProc(result, status, xhr) {
+			var str = "<table border='1'>";
+			$.each(result, function (idx, data) {
+				str += "<tr>";
+				str += "  <td>" + data.name + "</td>";
+				str += "  <td>" + data.id + "</td>";
+				str += "  <td>" + data.kor + "</td>";
+				str += "  <td>" + data.eng + "</td>";
+				str += "  <td>" + data.mat + "</td>";
+				str += "</tr>";
+			});
+			str+="</table>";
+
+			$("#panel").empty();
+			$("#panel").append(str);
+		}
+		
+	</script>
+
+</body>
+
+</html>

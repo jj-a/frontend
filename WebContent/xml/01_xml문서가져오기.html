@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>01_xml문서가져오기.html</title>
+</head>
+
+<body>
+	<button id="btn">data.xml문서 가져오기</button>
+	<dl></dl>
+
+	<script src="js/jquery.js"></script>
+	<script>
+
+	$("#btn").click(function () { 
+		var str="";
+		$.ajax({
+			url: "data.xml",
+			dataType: "xml",
+			success: function (result) {
+				// alert($("title", result).text());
+				// alert($("link", result).text());
+				// alert($("item", result).text());
+				str+="<dt>";
+				str+="<a herf='"+$("item", result).text()+"'>";
+				str+=$("item", result).text();
+				str+="</a>";
+				str+="</dt>";
+			},
+			error: function (xhr, status, error) {
+				alert(error);
+			}
+		});
+		
+		$("dl").append(str);
+	});
+
+	</script>
+</body>
+
+</html>

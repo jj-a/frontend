@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>01_json시작.html</title>
+</head>
+<body>
+<ul>
+
+</ul>
+<script src="js/jquery.js"></script>
+<script>
+	/*
+		JSON: JavaScript Object Notation
+		- 자바스크립트 객체 표기법
+		- 비동기식 통식에서 XML을 대체하는 주요 데이터 포맷
+		- 문자단위: 단순 문자열, JSON, XML 등
+		- {속성:값} 으로 구성
+	*/
+
+	var movie=[{"title":"Mary Poppins Returns", "director":"Rob Marshall", "actor":"Emily Blunt", "year":"2018"}, {"title":"Green Book", "director":"Peter Farrelly", "actor":"Mahershalahashbaz Ali", "year":"2018"}, ]
+
+	for(var i=0;i<2;i++){
+		$("<li>").text(movie[i].title+"("+movie[i].year+")").appendTo("ul");
+		$("<li>").text(movie[i].director).appendTo("ul");
+		$("<li>").text(movie[i].actor).appendTo("ul");
+	}
+	
+</script>
+
+</body>
+</html>
